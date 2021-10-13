@@ -5,18 +5,18 @@
  *      Author: Paul
  *
    ============================================================================
- 	El sistema deber· tener el siguiente men˙ de opciones:
-	1. ALTAS: Se debe permitir ingresar un empleado calculando autom·ticamente el n˙mero
-	de Id. El resto de los campos se le pedir· al usuario.
-	2. MODIFICAR: Se ingresar· el N˙mero de Id, permitiendo modificar: o Nombre o Apellido
+ 	El sistema deber√° tener el siguiente men√∫ de opciones:
+	1. ALTAS: Se debe permitir ingresar un empleado calculando autom√°ticamente el n√∫mero
+	de Id. El resto de los campos se le pedir√° al usuario.
+	2. MODIFICAR: Se ingresar√° el N√∫mero de Id, permitiendo modificar: o Nombre o Apellido
 	o Salario o Sector
-	3. BAJA: Se ingresar· el N˙mero de Id y se eliminar· el empleado del sistema.
+	3. BAJA: Se ingresar√° el N√∫mero de Id y se eliminar√° el empleado del sistema.
 	4. INFORMAR:
-	1. Listado de los empleados ordenados alfabÈticamente por Apellido y Sector.
-	2. Total y promedio de los salarios, y cu·ntos empleados superan el salario promedio.
-	NOTA: Se deber· realizar el men˙ de opciones y las validaciones a travÈs de funciones.
-	Tener en cuenta que no se podr· ingresar a los casos 2, 3 y 4; sin antes haber realizado la
-	carga de alg˙n empleado.
+	1. Listado de los empleados ordenados alfab√©ticamente por Apellido y Sector.
+	2. Total y promedio de los salarios, y cu√°ntos empleados superan el salario promedio.
+	NOTA: Se deber√° realizar el men√∫ de opciones y las validaciones a trav√©s de funciones.
+	Tener en cuenta que no se podr√° ingresar a los casos 2, 3 y 4; sin antes haber realizado la
+	carga de alg√∫n empleado.
  ============================================================================
  *
  */
@@ -50,7 +50,7 @@ int addEmployee(Employee* list, int len, int id, char name[],char lastName[],flo
 
 		if(searchEmpty(list, len, &index)==-1)
 		{
-			printf("error en el tamaÒo o la lista es NULL.\n");
+			printf("error en el tama√±o o la lista es NULL.\n");
 		}
 		else
 		{
@@ -85,19 +85,19 @@ int requestEmployee(Employee* list, int len,int* id,int* amountEmployee)
 		 	auxEmployee.id=idAct;
 			if(requestNameOrLastName(auxEmployee.name, "Ingrese el Nombre del Empleado: ", "ERROR.El Nombre ingresado no es validoe l maximo de caracteres es 41 y no se permiten signos.\nReingrese el Nombre del empleado: ", MAXCHAR)==-1)
 			{
-				printf("ERROR.En el puntero o el tamaÒo enviados a la funcion.\n");
+				printf("ERROR.En el puntero o el tama√±o enviados a la funcion.\n");
 			}
 			if(requestNameOrLastName(auxEmployee.lastName, "Ingrese el Apellido del Empleado: ", "ERROR.El Apellido ingresado no es valido el maximo de caracteres es 41 y no se permiten signos.\nReingrese el Apellido del empleado: ", MAXCHAR)==-1)
 			{
-				printf("ERROR.En el puntero o el tamaÒo enviados a la funcion.\n");
+				printf("ERROR.En el puntero o el tama√±o enviados a la funcion.\n");
 			}
 			if(requestNumberFloat(&auxEmployee.salary, "Ingrese el Salario del Empleado: ", "ERROR.El Numero ingresado debe ser mayor a $25.000 , menor a $800.000 y no puede contener signos o letras\nReingrese el Salario del empleado: ", MINSALARY,MAXSALARY)==-1)
 			{
-				printf("ERROR.En el puntero o el tamaÒo enviados a la funcion.\n");
+				printf("ERROR.En el puntero o el tama√±o enviados a la funcion.\n");
 			}
 			if(requestNumber(&auxEmployee.sector, "Ingrese el Sector del Empleado: ", "ERROR.El Numero ingresado debe ser mayor a 1 y menor a 10\nReingrese el Salario del empleado: ", SECTORMIN, SECTORMAX)==-1)
 			{
-				printf("ERROR.En el puntero o el tamaÒo enviados a la funcion.\n");
+				printf("ERROR.En el puntero o el tama√±o enviados a la funcion.\n");
 			}
 			printf("\nEmpleado a cargar:\n\n%-5s %-20s %-20s  %-20s %-20s\n", "ID", "NOMBRE", "APELLIDO", "SALARIO", "SECTOR");
 			printEmployee(auxEmployee);
@@ -207,7 +207,7 @@ int adjustEmployee(Employee* list,int len)
 
 		if(requestNumber(&id, "Ingrese el ID del empleado a Modificar: ", "ERROR.El Id Ingreado debe estar entre (1000 y 2000).\nReingrese ID del empleado a Modificar: ", MINID, MAXID)==-1)
 		{
-			printf("ERROR.En el puntero o el tamaÒo enviados a la funcion.\n");
+			printf("ERROR.En el puntero o el tama√±o enviados a la funcion.\n");
 		}
 		index=findEmployeeById(list, len, id);
 		if(index!=-1)
@@ -223,7 +223,7 @@ int adjustEmployee(Employee* list,int len)
 										"2.APELLIDO\n"
 										"3.SALARIO\n"
 										"4.SECTOR\n"
-										"5.CANCELAR MODIFICACION\n"
+										"5.ATRAS\n"
 										"***********************\n"
 										"Ingrese una opcion: ",
 										"\n***********************\n"
@@ -302,7 +302,7 @@ int adjustEmployee(Employee* list,int len)
 						}
 						break;
 					case 5:
-						printf("\nSe cancelo la modificacion.\n");
+						printf("\nvolviendo atras.\n");
 						break;
 				}
 
@@ -437,14 +437,14 @@ int printSubMenuReport(Employee* list, int len)
 				case 1:
 					if(printEmployees(list, len))
 					{
-						printf("ERROR.En el puntero o el tamaÒo enviados a la funcion.\n");
+						printf("ERROR.En el puntero o el tama√±o enviados a la funcion.\n");
 					}
 					systemPause("\nToque cualquier tecla para continuar...");
 					break;
 				case 2:
 					if(averagedSalary(list, len))
 					{
-						printf("ERROR.En el puntero o el tamaÒo enviados a la funcion.\n");
+						printf("ERROR.En el puntero o el tama√±o enviados a la funcion.\n");
 					}
 					systemPause("\nToque cualquier tecla para continuar...");
 					break;
